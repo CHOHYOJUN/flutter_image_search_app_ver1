@@ -11,32 +11,23 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  final TextEditingController textEditingController = TextEditingController();
-  String searchText = ''; // searchText 변수 추가
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       // appBar: AppBar(title: const Text('앱 제목'),),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(30),
+          padding: EdgeInsets.all(30),
           child: Column(
             children: [
               /// 검색 창
-              SearchInput(
-                textEditingController: textEditingController,
-                onPressed: () {
-                  searchText = textEditingController.text.isEmpty
-                      ? ''
-                      : textEditingController.text;
-                  setState((){});
-                },
-              ),
-              const SizedBox(height: 10),
+              SearchInput(),
+              /// 여백
+              SizedBox(height: 10),
               /// 리스트
               Expanded(
-                child: ImageListWidget(searchText: searchText),
+                child: ImageListWidget(),
               ),
             ],
           ),

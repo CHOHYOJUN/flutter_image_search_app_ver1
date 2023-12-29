@@ -1,63 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_search_app_ver1/data/model/image_item.dart';
+import 'package:flutter_image_search_app_ver1/viewmodel/image_model.dart';
+import 'package:provider/provider.dart';
 
 import '../../data/repository/image_item_repository.dart';
 
 class ImageListWidget extends StatefulWidget {
-  final String searchText;
-
-  const ImageListWidget({Key? key, required this.searchText}) : super(key: key);
+  const ImageListWidget({Key? key}) : super(key: key);
 
   @override
   State<ImageListWidget> createState() => _ImageListWidgetState();
 }
 
 class _ImageListWidgetState extends State<ImageListWidget> {
-  final ImageItemRepository repo = ImageItemRepository();
-  List<ImageItem> imageItems = [];
-  bool isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    searchImage(widget.searchText);
-    setState(() {});
-  }
-
-  /// 데이터 출력
-  void checkData() async {
-    print(widget.searchText);
-
-    // setState(() {
-    //   isLoading = true;
-    // });
-
-    imageItems =  await searchImage(widget.searchText);
-
-    // setState(() {
-    //   isLoading = true;
-    // });
-
-  }
-
-  Future<List<ImageItem>> searchImage(String query) async {
-    return await repo.getImageItems(query);
   }
 
   @override
   Widget build(BuildContext context) {
-
-    checkData();
-
+    final imageModel = Provider.of<ImageModel>(context);
     return
-        isLoading ? const Center(child: CircularProgressIndicator()) :
+        // isLoading ? const Center(child: CircularProgressIndicator()) :
       GridView.builder(
-      itemCount: imageItems.length,
+      itemCount: imageModel.imageItems.length,
       itemBuilder: (BuildContext context, int index) {
         return ClipRRect(
           borderRadius: BorderRadius.circular(20.0),
           child: Image.network(
-            imageItems[index].imageUrl,
+            imageModel.imageItems[index].imageUrl,
             fit: BoxFit.cover,
             errorBuilder: (context, error, stackTrace) {
               return const Icon(Icons.error);
