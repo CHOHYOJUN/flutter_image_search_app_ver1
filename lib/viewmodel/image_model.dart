@@ -7,14 +7,17 @@ class ImageModel with ChangeNotifier {
   final _repo = ImageItemRepository();
   String _query = '';
   List<ImageItem> _imageItems = [];
+  bool isLoading = false;
 
   ImageModel() {
     fetch();
   }
 
   Future<void> fetch() async {
+    isLoading = true; notifyListeners();
     imageItems = await _repo.getImageItems(query);
-    notifyListeners();
+    isLoading = false; notifyListeners();
+
   }
 
   set query(String value) {

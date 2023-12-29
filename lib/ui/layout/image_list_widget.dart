@@ -22,7 +22,7 @@ class _ImageListWidgetState extends State<ImageListWidget> {
   Widget build(BuildContext context) {
     final imageModel = Provider.of<ImageModel>(context);
     return
-        // isLoading ? const Center(child: CircularProgressIndicator()) :
+      imageModel.isLoading ? const Center(child: CircularProgressIndicator()) :
       GridView.builder(
       itemCount: imageModel.imageItems.length,
       itemBuilder: (BuildContext context, int index) {
