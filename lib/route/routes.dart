@@ -1,8 +1,5 @@
 
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_image_search_app_ver1/data/model/image_item.dart';
 import 'package:go_router/go_router.dart';
 
 import '../ui/layout/image_detail_screen.dart';
@@ -25,7 +22,6 @@ final GoRouter $Router = GoRouter(
 
         /// 직렬화, 역직열화로 데이터 전달
         // final ImageItem imageItems = ImageItem.fromJson(jsonDecode(state.uri.queryParameters['imageItem']!));
-
 
         return DetailPage(id: id);
       },

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../data/model/image_item.dart';
 import '../../view_model/image_model.dart';
-import '../widget/images/default_image_widget.dart';
-import '../widget/title/TitleWidget.dart';
 
 class DetailPage extends StatelessWidget {
   final String id;

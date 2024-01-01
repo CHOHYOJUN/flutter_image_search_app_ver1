@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_search_app_ver1/ui/layout/main_screen.dart';
 import 'package:flutter_image_search_app_ver1/view_model/image_model.dart';
 import 'package:provider/provider.dart';
 import 'route/routes.dart';
