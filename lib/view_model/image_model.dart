@@ -9,10 +9,17 @@ class ImageModel with ChangeNotifier {
   List<ImageItem> _imageItems = [];
   bool _isLoading = false;
 
-
   // 생성자
   ImageModel() {
     fetch();
+  }
+
+  /// _id repo -> 데이터
+  ImageItem? inquireItem({required num id}) {
+    if (_imageItems.isNotEmpty) {
+      return _imageItems.firstWhere((image) => image.id == id);
+    }
+    return null;
   }
 
   Future<void> fetch() async {

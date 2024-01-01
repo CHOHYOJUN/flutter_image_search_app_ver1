@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_image_search_app_ver1/ui/widget/title/TitleWidget.dart';
 import 'package:flutter_image_search_app_ver1/view_model/image_model.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -39,14 +36,18 @@ class _ImageListWidgetState extends State<ImageListWidget> {
                     //   ),
                     // );
 
-                    String jsonData = jsonEncode(imageModel.imageItems[index].toJson());
+                    /// 직렬화 json 데이터
+                    // String jsonData = jsonEncode(imageModel.imageItems[index].toJson());
+
+                    /// id 전달
+                    String id = imageModel.imageItems[index].id.toString();
 
                     /// GoRouter
                     await context.push(
                       Uri(
                         path: '/detailPage',
                         queryParameters: {
-                          'imageItem': jsonData
+                          'id': id
                         },
                       ).toString(),
                     );

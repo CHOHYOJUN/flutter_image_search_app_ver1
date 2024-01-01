@@ -1,5 +1,5 @@
 class ImageItem {
-  String id;
+  num id;
   String imageUrl;
   String tags;
 
@@ -32,7 +32,7 @@ class ImageItem {
   }
 
   ImageItem copyWith({
-    String? id,
+    num? id,
     String? imageUrl,
     String? tags,
   }) {
@@ -53,7 +53,7 @@ class ImageItem {
 
   factory ImageItem.fromJson(Map<String, dynamic> map) {
     return ImageItem(
-      id: map['id'] as String,
+      id: map['id'] as num,
       imageUrl: map['imageUrl'] as String,
       tags: map['tags'] as String,
     );

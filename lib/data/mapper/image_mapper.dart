@@ -6,8 +6,9 @@ extension DtoToModel on Hits {
   /// 변환하는 기능
   ImageItem toImageItem() {
     return ImageItem(
-        imageUrl: previewURL ??
-            'https://image.dongascience.com/Photo/2017/03/14884464688564.jpg',
-        tags: tags ?? '', id: '');
+        imageUrl: previewURL ?? 'https://image.dongascience.com/Photo/2017/03/14884464688564.jpg',
+        tags: tags ?? '',
+        id: id ?? 0,
+    );
   }
 }

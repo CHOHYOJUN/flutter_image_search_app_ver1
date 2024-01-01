@@ -10,7 +10,7 @@ class DefaultImageWidget extends StatelessWidget {
     return
       Image.network(
         networkUrl,
-        fit: BoxFit.contain, // 이미지를 가로 크기에 맞게 채웁니다
+        fit: BoxFit.fitWidth, // 이미지를 가로 크기에 맞게 채웁니다
       );
   }
 }

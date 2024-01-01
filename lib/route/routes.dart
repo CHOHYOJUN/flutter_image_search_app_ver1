@@ -19,15 +19,15 @@ final GoRouter $Router = GoRouter(
       path: '/detailPage',
       builder: (BuildContext context, GoRouterState state) {
         /// 일반 파라메터 전달
-        // final uri = Uri.parse(state.uri.toString());
-        // final queryParams = uri.queryParameters;
-        // final double height = double.tryParse(queryParams['height'] ?? '') ??  0.0;
-        // final double weight = double.tryParse(queryParams['weight'] ?? '') ??  0.0;
+        final uri = Uri.parse(state.uri.toString());
+        final queryParams = uri.queryParameters;
+        final String id = queryParams['id'] ?? '';
 
         /// 직렬화, 역직열화로 데이터 전달
-        final ImageItem imageItems = ImageItem.fromJson(jsonDecode(state.uri.queryParameters['imageItem']!));
+        // final ImageItem imageItems = ImageItem.fromJson(jsonDecode(state.uri.queryParameters['imageItem']!));
 
-        return DetailPage(imageItem: imageItems);
+
+        return DetailPage(id: id);
       },
     ),
   ],
