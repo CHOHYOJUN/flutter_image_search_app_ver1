@@ -7,18 +7,25 @@ class ImageModel with ChangeNotifier {
   final _repo = ImageItemRepository();
   String _query = '';
   List<ImageItem> _imageItems = [];
-  bool isLoading = false;
+  bool _isLoading = false;
 
+
+  // 생성자
   ImageModel() {
     fetch();
   }
 
   Future<void> fetch() async {
-    isLoading = true; notifyListeners();
-    imageItems = await _repo.getImageItems(query);
-    isLoading = false; notifyListeners();
+    isLoading = true;
+    notifyListeners();
 
+    imageItems = await _repo.getImageItems(query);
+
+    isLoading = false;
+    notifyListeners();
   }
+
+  // getter, setter
 
   set query(String value) {
     _query = value;
@@ -30,5 +37,11 @@ class ImageModel with ChangeNotifier {
 
   set imageItems(List<ImageItem> value) {
     _imageItems = value;
+  }
+
+  bool get isLoading => _isLoading;
+
+  set isLoading(bool value) {
+    _isLoading = value;
   }
 }

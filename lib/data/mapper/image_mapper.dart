@@ -8,6 +8,6 @@ extension DtoToModel on Hits {
     return ImageItem(
         imageUrl: previewURL ??
             'https://image.dongascience.com/Photo/2017/03/14884464688564.jpg',
-        tags: tags ?? '');
+        tags: tags ?? '', id: '');
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_image_search_app_ver1/ui/layout/search_input.dart';
 
-import 'image_list_widget.dart';
+import '../widget/image_list_widget.dart';
+import '../widget/search_input_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
